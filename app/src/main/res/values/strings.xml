@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Suitmedia_mobile</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_Palindrome">Palindrome</string>
+    <string name="btn_check">Check</string>
+    <string name="btn_next">Next</string>
+    <string name="title_activity_second_screen">SecondScreen</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="second_screen_label">Second Screen</string>
+    <string name="third_screen_label">Third Screen</string>
+    <string name="choose_user">Choose a User</string>
+    <string name="previous">Previous</string>
+    <string name="welcome">Welcome</string>
+    <string name="log_name">Anonymous</string>
+    <string name="selected_user">Selected User Name</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>

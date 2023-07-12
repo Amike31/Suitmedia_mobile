@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    dimension-->
+    <dimen name="corner_radius">15dp</dimen>
+    <dimen name="container_padding">25dp</dimen>
+    <dimen name="text_size_input">17sp</dimen>
+    <dimen name="text_size_welcome">12sp</dimen>
+    <dimen name="text_size_log_name">20sp</dimen>
+    <dimen name="text_size_selected_user">25sp</dimen>
+    <dimen name="text_size_btn">20sp</dimen>
+    <dimen name="min_btn_height">55dp</dimen>
+</resources>
