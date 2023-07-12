@@ -3,6 +3,7 @@ package com.example.suitmedia_mobile
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.Toast
 import com.example.suitmedia_mobile.databinding.ActivityMainBinding
 
@@ -23,6 +24,14 @@ class FirstScreen : AppCompatActivity() {
             intent.putExtra("name", binding.tIeName.text.toString())
             startActivity(intent)
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     fun isPalindrome(word: String): String {

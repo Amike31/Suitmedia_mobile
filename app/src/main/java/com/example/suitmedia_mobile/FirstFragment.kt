@@ -1,5 +1,6 @@
 package com.example.suitmedia_mobile
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -51,10 +52,15 @@ class FirstFragment : Fragment() {
             binding.tvSelectedUser.text = selectedUser
         }
 
-        binding.buttonFirst.setOnClickListener {
+        binding.btnChsUser.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("name", name)
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
+        }
+
+        binding.btnClose.setOnClickListener {
+            val intent = Intent(this@FirstFragment.requireContext(), FirstScreen::class.java)
+            startActivity(intent)
         }
     }
 

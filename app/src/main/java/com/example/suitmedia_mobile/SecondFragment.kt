@@ -1,7 +1,6 @@
 package com.example.suitmedia_mobile
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,6 @@ import com.example.suitmedia_mobile.model.Item
 import com.example.suitmedia_mobile.retrofit.ApiEndpoint
 import com.example.suitmedia_mobile.retrofit.RetrofitClient
 import kotlin.collections.ArrayList
-import com.example.suitmedia_mobile.retrofit.dataClass.RawResponse
 import kotlinx.coroutines.*
 
 /**
@@ -60,7 +58,7 @@ class SecondFragment : Fragment() {
         lifecycleScope.launch {
             val operation = GlobalScope.async(Dispatchers.Default) {
                 try {
-                    val res = api.getRawResponse()
+                    val res = api.getRawResponse(1, 12)
                     if (res.isSuccessful) {
                         val dataItem = res.body()?.data
                         if (dataItem != null) {
@@ -83,15 +81,17 @@ class SecondFragment : Fragment() {
             recyclerView = binding.rvItem
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.setHasFixedSize(true)
-            adapter = ItemAdapter(listItem)
+            adapter = context?.let { ItemAdapter(listItem, it) }!!
             recyclerView.adapter = adapter
-        }
-
-        binding.buttonSecond.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("name", name)
-            bundle.putString("selected", "lala")
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment, bundle)
+            adapter.setOnItemClickListener(object : ItemAdapter.onItemClickListener {
+                override fun onItemClick(pos: Int) {
+                    val bundle = Bundle()
+                    bundle.putString("name", name)
+                    val selectedItem = listItem[pos].first_name + " " + listItem[pos].last_name
+                    bundle.putString("selected", selectedItem)
+                    findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment, bundle)
+                }
+            })
         }
     }
 
