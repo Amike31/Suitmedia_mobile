@@ -26,6 +26,7 @@ class ItemAdapter(private val items: ArrayList<Item>, private val mContext: Cont
 
     class ItemViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.tv_item_name)
+        val email: TextView = itemView.findViewById(R.id.tv_item_email)
         val avatar: ImageView = itemView.findViewById(R.id.img_item_avatar)
 
         init {
@@ -43,6 +44,7 @@ class ItemAdapter(private val items: ArrayList<Item>, private val mContext: Cont
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
         holder.name.text = currentItem.first_name + " " + currentItem.last_name
+        holder.email.text = currentItem.email
         Glide.with(mContext).load(currentItem.avatar).into(holder.avatar)
     }
 

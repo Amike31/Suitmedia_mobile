@@ -10,10 +10,10 @@ android {
     defaultConfig {
         applicationId "com.example.suitmedia_mobile"
         minSdk 19
-        targetSdk 33
+        targetSdk 31
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -55,4 +55,5 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
 }
